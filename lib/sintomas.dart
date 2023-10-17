@@ -6,7 +6,9 @@ void main() {
 }
 
 class Sintomas extends StatelessWidget {
-  const Sintomas({super.key});
+  // ignore: non_constant_identifier_names
+  final String TipoSaude;
+  const Sintomas(this.TipoSaude, {Key? key, required}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,8 @@ class Sintomas extends StatelessWidget {
         scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       home: Scaffold(
-        body: ListView(children: const [
-          Home2(),
+        body: ListView(children: [
+          Home2(TipoSaude),
         ]),
       ),
     );
@@ -24,14 +26,18 @@ class Sintomas extends StatelessWidget {
 }
 
 class Home2 extends StatelessWidget {
-  const Home2({Key? key}) : super(key: key);
+  final String TipoSaude;
+  Home2(this.TipoSaude, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+   
+
+
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 20),
+          margin: const EdgeInsets.only(top: 10),
           // Criar linha icon de volta e texto
           child: Row(
             children: [
@@ -66,7 +72,7 @@ class Home2 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'SINTOMAS',
+                    TipoSaude,
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 18.0,
@@ -150,8 +156,8 @@ class Home2 extends StatelessWidget {
 
         Container(
           width: 350,
-          height: 140,
-          margin: const EdgeInsets.only(top: 26),
+          height: 80,
+          margin: const EdgeInsets.only(top: 46),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -160,7 +166,7 @@ class Home2 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: const Color.fromARGB(236, 184, 176, 176),
                 ),
-                width: 150,
+                width: 95,
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [],
@@ -181,7 +187,109 @@ class Home2 extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        Container(
+          width: 350,
+          height: 80,
+          margin: const EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromARGB(236, 184, 176, 176),
+                ),
+                width: 95,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [],
+                ),
+              ),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Alguém questão causa?',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Container(
+          width: 350,
+          height: 80,
+          margin: const EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromARGB(236, 184, 176, 176),
+                ),
+                width: 95,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [],
+                ),
+              ),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Alguém questão causa?',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Container(
+          width: 350,
+          height: 80,
+          margin: const EdgeInsets.only(bottom: 30, top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromARGB(236, 184, 176, 176),
+                ),
+                width: 95,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [],
+                ),
+              ),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Alguém questão causa?',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

@@ -3,7 +3,7 @@ import 'package:projeto_integrador/sintomas.dart';
 
 void main() {
   runApp(const CodeApp());
-}
+  }
 
 class CodeApp extends StatelessWidget {
   const CodeApp({super.key});
@@ -25,7 +25,8 @@ class CodeApp extends StatelessWidget {
 
 class Home1 extends StatelessWidget {
   const Home1({Key? key}) : super(key: key);
-
+  // ignore: non_constant_identifier_names
+  final String TipoSaude = "Bronquite";
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -268,10 +269,7 @@ class Home1 extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Sintomas()),
-                    );
+                  _navigateToSintomas(context, TipoSaude);
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -279,12 +277,12 @@ class Home1 extends StatelessWidget {
                     color: const Color.fromARGB(236, 184, 176, 176),
                   ),
                   width: 150,
-                  child: const Column(
+                  child: Column(
                     children: [
-                       SizedBox(height: 110),
-                       Text(
-                        "Sintoma",
-                        style: TextStyle(
+                      const SizedBox(height: 110),
+                      Text(
+                        TipoSaude,
+                        style: const TextStyle(
                           fontSize: 19.5,
                           fontWeight: FontWeight.w400,
                           color: Colors.black,
@@ -296,10 +294,7 @@ class Home1 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Sintomas()));
+                  _navigateToSintomas(context, "Febre");
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -311,7 +306,7 @@ class Home1 extends StatelessWidget {
                     children: [
                       SizedBox(height: 110),
                       Text(
-                        "Sintoma",
+                        "Febre",
                         style: TextStyle(
                           fontSize: 19.5,
                           fontWeight: FontWeight.w400,
@@ -328,16 +323,13 @@ class Home1 extends StatelessWidget {
         Container(
           width: 350,
           height: 140,
-          margin: const EdgeInsets.only(top: 30),
+          margin: const EdgeInsets.only(top: 30, bottom: 30),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Sintomas()),
-                  );
+                  _navigateToSintomas(context, "Dor de ouvido");
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -349,7 +341,7 @@ class Home1 extends StatelessWidget {
                     children: [
                       SizedBox(height: 110),
                       Text(
-                        "Sintoma",
+                        "Dor de ouvido",
                         style: TextStyle(
                           fontSize: 19.5,
                           fontWeight: FontWeight.w400,
@@ -362,10 +354,7 @@ class Home1 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Sintomas()),
-                  );
+                  _navigateToSintomas(context, "Dor de Cabeça");
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -377,7 +366,7 @@ class Home1 extends StatelessWidget {
                     children: [
                       SizedBox(height: 110),
                       Text(
-                        "Sintoma",
+                        "Dor de Cabeça",
                         style: TextStyle(
                           fontSize: 19.5,
                           fontWeight: FontWeight.w400,
@@ -392,6 +381,12 @@ class Home1 extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  void _navigateToSintomas(BuildContext context, tipoSaude) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Sintomas(TipoSaude)),
     );
   }
 }
